@@ -7,11 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-
-public class CreatingAContactWithValidDetails {
+public class EditTheContact {
     @Test
-    public void createbutton() throws InterruptedException {
+
+    public void editContact() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginIntoApplication();
@@ -19,18 +18,13 @@ public class CreatingAContactWithValidDetails {
         NavigationPage navigationPage = new NavigationPage(driver);
         navigationPage.navigateToCRM();
         navigationPage.navigateToContactsPage();
-        Thread.sleep(5000);
 
         ContactsPage contactsPage = new ContactsPage(driver);
-        contactsPage.clickOnCreateButton();
-        Thread.sleep(5000);
-        contactsPage.ValidatingDetails("firstName", "lastName");
-        contactsPage.entermail();
-        Thread.sleep(5000);
-        //contactsPage.enterNumber();
-        Thread.sleep(3000);
-        //contactsPage.dropDown();
+        contactsPage.contact();
+        contactsPage.editTheContact();
+        contactsPage.enterTitle();
         contactsPage.save();
-        driver.close();
+
     }
+
 }
